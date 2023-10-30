@@ -25,6 +25,7 @@ botmaster.sendMessage2 = (tag, id, message, isSafe) => {
   response.type = "text";
   response.Body = message;
   response.caption = "N/A";
+  
   response.tag=tag;
   if (isSafe) {
     WAPI.getchatId(id)
@@ -55,7 +56,7 @@ botmaster.sendMessageto = async (id, message, isSafe) => {
   sendResult.message = message;
   sendResult.sentStatus = false;
   sendResult.result = {};
-
+   
   if (isSafe) {
     try {
       await WAPI.getchatId(id);
@@ -111,6 +112,7 @@ botmaster.sendMessage = (tag, id, message, isSafe) => {
   response.Body = message;
   response.caption = "N/A";
   response.tag=tag;
+  
   if (isSafe) {
     WAPI.getchatId(id)
       .then((r) => {
@@ -316,8 +318,7 @@ botmaster.sendFile2 = function(id, account, from, base64File, caption, filename,
     } else if (videoExtensions.includes(extension)) {
       return 'video';
     } else {
-      return 'document';
+      return 'document'; // If you want to handle other file types as well
     }
   }
-
-console.log('Alex API : 5.1.1.2');
+console.log('Alex WhatsApp API :5.1.1.2');
